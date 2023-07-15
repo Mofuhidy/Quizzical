@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import blobs from './assets/images/blobs.svg';
+import yellow from './assets/images/yellow-blobs.svg';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <main>
+        <img className="shapeUp" src={yellow} alt="shape up" />
+        <img className="shapeBottom" src={blobs} alt="shape bottom" />
+
+        <section className=" flex justify-center items-center flex-col h-screen gap-4">
+          <h1 className="title font-bold text-violet-950 text-6xl"> Quizzical</h1>
+          <p className="description text-violet-950 text-lg"> Unlock the power of your curiosity</p>
+          <button type="button" className="shadow-s text-lg bg-violet-950 text-white font-bold p-4 w-9 rounded-xl">Start Quiz</button>
+        </section>
+
+      </main>
+    </>
   );
 }
 
