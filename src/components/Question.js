@@ -27,6 +27,7 @@ function Question({ q }) {
         {q.question}
         {answersElements}
       </div>
+      <div className="line" />
     </>
   );
 }

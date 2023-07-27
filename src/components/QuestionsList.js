@@ -5,9 +5,9 @@ import getQuestions from '../api/getQuestions';
 
 function QuestionsList() {
   const [count, setCount] = useState(0);
-  // const [checked, setChecked] = useState(false);
-  // const [correct, setCorrect] = useState(0);
-  const [questions, setQuestion] = useState([]);
+  const [checked, setChecked] = useState(false);
+  const [correct, setCorrect] = useState(0);
+  const [questions, setQuestions] = useState([]);
 
   const shuffleArr = (arr) => arr.sort(() => Math.random - 0.5);
 
@@ -24,22 +24,69 @@ function QuestionsList() {
           selected: null,
           checked: false,
         });
-        setQuestion(q);
+        setQuestions(q);
       });
     };
     fetchData();
   }, [count]);
 
+  function handleCheck() {
+    let selected = true;
+
+    questions.forEach((question) => {
+      if (question.selected === null) {
+        selected = false;
+      }
+    });
+
+    if (!selected) {
+      return false;
+    }
+
+    setQuestions((questions) => questions.map((question) => ({ ...question, checked: true })));
+
+    setChecked(true);
+
+    let correct = 0;
+    questions.forEach((question) => {
+      if (question.correct === question.selected) {
+        correct += 1;
+      }
+    });
+    setCorrect(correct);
+  }
+
+  const handleClickAnswer = (id, answer) => {
+    setQuestions((questions) => questions.map(
+      (question) => (id === question.id ? { ...question, selected: answer } : question),
+    ));
+  };
+
+  const handlePlayAgain = () => {
+    setCorrect((correct) => correct + 1);
+    setChecked(false);
+  };
+
   const questionElem = questions ? questions.map((question) => (
     <Question
       key={question.id}
       q={question}
+      handleClickAnswer={handleClickAnswer}
       id={question.id}
     />
   )) : [];
 
   return (
-    <div>{questionElem}</div>
+    <>
+      <div>
+        {questionElem}
+        <div className="">
+          <button type="button" className="check" onClick={checked ? handlePlayAgain : handleCheck}>
+            Chek Answer
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
 export default QuestionsList;
