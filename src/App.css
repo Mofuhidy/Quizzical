@@ -1,0 +1,17 @@
+main {
+  position: relative;
+}
+
+.shapeUp {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+}
+
+.shapeBottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 280px;
+}
