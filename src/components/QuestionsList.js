@@ -30,6 +30,7 @@ function QuestionsList() {
     fetchData();
   }, [count]);
 
+  // eslint-disable-next-line consistent-return
   function handleCheck() {
     let selected = true;
 

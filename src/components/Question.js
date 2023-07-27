@@ -1,11 +1,11 @@
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
-function Question({ q }) {
+function Question({ q, handleClickAnswer, id }) {
   const { answers } = q;
 
   const handleClick = (answer) => {
-    q.handleClickAnswer(q.id, answer);
+    handleClickAnswer(id, answer);
   };
 
   const answersElements = answers.map((answer) => {
@@ -20,7 +20,7 @@ function Question({ q }) {
       }
     }
     return (
-      <button key={nanoid()} id={id} className={q.selected === answer ? 'answer selected' : 'answer'} type="button" onClick={handleClick}>
+      <button key={nanoid()} id={id} className={q.selected === answer ? 'answer selected' : 'answer'} type="button" onClick={() => handleClick(answer)}>
         {answer}
       </button>
     );
@@ -44,8 +44,9 @@ Question.propTypes = {
     selected: PropTypes.string,
     checked: PropTypes.bool,
     id: PropTypes.string,
-    handleClickAnswer: PropTypes.func,
   }).isRequired,
+  handleClickAnswer: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Question;
