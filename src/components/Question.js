@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 function Question({ q }) {
   const { answers } = q;
 
+  const handleClick = (answer) => {
+    q.handleClickAnswer(q.id, answer);
+  };
+
   const answersElements = answers.map((answer) => {
     let id = null;
     if (q.checked) {
@@ -16,7 +20,7 @@ function Question({ q }) {
       }
     }
     return (
-      <button key={nanoid()} id={id} className={q.selected === answer ? 'answer selected' : 'answer'} type="button">
+      <button key={nanoid()} id={id} className={q.selected === answer ? 'answer selected' : 'answer'} type="button" onClick={handleClick}>
         {answer}
       </button>
     );
@@ -39,6 +43,8 @@ Question.propTypes = {
     correct: PropTypes.string,
     selected: PropTypes.string,
     checked: PropTypes.bool,
+    id: PropTypes.string,
+    handleClickAnswer: PropTypes.func,
   }).isRequired,
 };
 

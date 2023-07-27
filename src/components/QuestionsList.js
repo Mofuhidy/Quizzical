@@ -63,7 +63,7 @@ function QuestionsList() {
   };
 
   const handlePlayAgain = () => {
-    setCorrect((correct) => correct + 1);
+    setCount((count) => count + 1);
     setChecked(false);
   };
 
@@ -78,14 +78,21 @@ function QuestionsList() {
 
   return (
     <>
-      <div>
-        {questionElem}
-        <div className="">
-          <button type="button" className="check" onClick={checked ? handlePlayAgain : handleCheck}>
-            Chek Answer
-          </button>
-        </div>
+
+      {questionElem}
+      <div className="end-div">
+        {checked && (
+          <span className="score">
+            You Scored
+            {correct}
+            /5 correct answers
+          </span>
+        )}
+        <button type="button" className="check" onClick={checked ? handlePlayAgain : handleCheck}>
+          {checked ? 'Play Again' : 'Check Answer'}
+        </button>
       </div>
+
     </>
   );
 }
