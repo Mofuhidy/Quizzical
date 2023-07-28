@@ -15,8 +15,6 @@ function Question({ q, handleClickAnswer, id }) {
         id = 'correct';
       } else if (q.selected === answer) {
         id = 'incorrect';
-      } else {
-        id = 'not-selected';
       }
     }
     return (
@@ -27,11 +25,13 @@ function Question({ q, handleClickAnswer, id }) {
   });
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col items-center justify-center font-bold text-lg sm:text-2xl text-violet-950">
         {q.question}
-        {answersElements}
+        <div className="flex font-normal justify-between w-48 items-center">
+          {answersElements}
+        </div>
+        <div className="line" />
       </div>
-      <div className="line" />
     </>
   );
 }

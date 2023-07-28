@@ -79,19 +79,20 @@ function QuestionsList() {
 
   return (
     <>
-
-      {questionElem}
-      <div className="end-div">
-        {checked && (
-          <span className="score">
+      <div className=" flex flex-col justify-center items-center m-16 w-3/4">
+        {questionElem}
+        <div className="end-div flex flex-col font-bold text-lg text-violet-950 items-center ">
+          {checked && (
+          <span className="score pb-2">
             You Scored
             {correct}
             /5 correct answers
           </span>
-        )}
-        <button type="button" className="check" onClick={checked ? handlePlayAgain : handleCheck}>
-          {checked ? 'Play Again' : 'Check Answer'}
-        </button>
+          )}
+          <button type="button" className="check shadow-s text-lg bg-violet-950 text-white font-bold p-4 w-48 rounded-xl" onClick={checked ? handlePlayAgain : handleCheck}>
+            {checked ? 'Play Again' : 'Check Answer'}
+          </button>
+        </div>
       </div>
 
     </>
