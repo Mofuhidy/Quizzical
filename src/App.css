@@ -6,12 +6,87 @@ main {
   position: fixed;
   top: 0;
   right: 0;
-  width: 280px;
+  width: 170px;
+  z-index: -1;
 }
 
 .shapeBottom {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 280px;
+  width: 180px;
+  z-index: -1;
+}
+
+.line {
+  border: 1px solid #dbdef0;
+  width: 100%;
+  margin-block: 15px;
+}
+
+.answer {
+  border: 1px solid #293264;
+  color: #293264;
+  border-radius: 7.5px;
+  width: 85px;
+  font-size: 1rem;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.answer.selected {
+  background-color: #d6dbf5;
+  color: #293264;
+  border-radius: 7.5px;
+  border: none;
+  width: 85px;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+#not-selected {
+  border: 1px solid #4d5b9e;
+  color: #4d5b9e;
+  border-radius: 7.5px;
+  width: 85px;
+  font-size: 1rem;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+#incorrect {
+  background-color: #f8bcbc;
+  color: #293264;
+  border-radius: 7.5px;
+  border: none;
+  width: 85px;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+#correct {
+  background-color: #94d7a2;
+  color: #293264;
+  border-radius: 7.5px;
+  border: none;
+  width: 85px;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .shapeUp {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+  }
+
+  .shapeBottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    z-index: -1;
+  }
 }

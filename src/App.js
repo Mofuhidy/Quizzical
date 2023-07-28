@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <main>
+      <main className="flex justify-center flex-col items-center">
         <img className="shapeUp" src={yellow} alt="shape up" />
         <img className="shapeBottom" src={blobs} alt="shape bottom" />
 
@@ -29,7 +29,7 @@ function App() {
             : <QuestionsList />
         }
 
-        <footer className="fixed bottom-0 text-center h-12 flex justify-center items-center w-full">
+        <footer className=" text-center h-12 flex justify-center items-center w-full">
           Developed by
           <a href="https://github.com/Mofuhidy" className=" font-semibold text-violet-950  pl-2 "> Fuhidy </a>
         </footer>
