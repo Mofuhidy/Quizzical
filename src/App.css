@@ -33,6 +33,7 @@ main {
   margin-top: 8px;
   font-weight: 600;
 }
+
 .answer.selected {
   background-color: #d6dbf5;
   color: #293264;
@@ -80,6 +81,7 @@ main {
     right: 0;
     width: 280px;
   }
+
   .shapeBottom {
     position: fixed;
     bottom: 0;
